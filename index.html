@@ -280,7 +280,7 @@
             color: var(--text-main);
         }
 
-        /* Hero carte */
+        /* Hero carte – version claire */
 
         .hero-right {
             position: relative;
@@ -288,127 +288,118 @@
 
         .map-card {
             position: relative;
-            border-radius: 26px;
-            padding: 1.6rem 1.7rem;
+            border-radius: 28px;
+            padding: 1.75rem 1.6rem 1.4rem;
             background:
-                radial-gradient(circle at 0 0, rgba(190,242,100,0.28), transparent 55%),
-                radial-gradient(circle at 100% 100%, rgba(56,189,248,0.25), transparent 60%),
+                radial-gradient(circle at 0 0, rgba(191, 219, 254, 0.85), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(187, 247, 208, 0.9), transparent 60%),
                 #f9fafb;
-            border: 1px solid rgba(148,163,184,0.35);
-            box-shadow: 0 20px 40px rgba(15,23,42,0.10);
-            overflow: hidden;
+            box-shadow: var(--shadow-soft);
         }
 
         .map-grid {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(148,163,184,0.45);
+            border-radius: 22px;
             background: #ffffff;
+            border: 1px solid rgba(148,163,184,0.35);
+            padding: 1.4rem 1.5rem 1.2rem;
         }
 
-        .map-inner {
-            position: relative;
-            padding: 1.1rem 1.2rem 1rem;
-        }
-
-        .map-row {
+        .map-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .map-title {
-            font-size: 0.96rem;
+            font-size: 1.02rem;
             font-weight: 600;
-            color: #111827;
         }
 
         .map-pill {
-            font-size: 0.78rem;
-            padding: 0.26rem 0.9rem;
-            border-radius: 999px;
-            border: 1px solid rgba(34,197,94,0.45);
-            color: #166534;
-            background: rgba(187,247,208,0.7);
+            font-size: 0.8rem;
+            padding: 0.35rem 1.1rem;
+            border-radius: var(--radius-full);
+            background: rgba(34,197,94,0.12);
+            color: #15803d;
+            border: 1px solid rgba(22,163,74,0.35);
+            box-shadow: 0 10px 20px rgba(22,163,74,0.18);
         }
 
         .map-line {
             height: 1px;
             width: 100%;
             background-image: linear-gradient(to right,
-                    transparent 0%,
-                    rgba(148,163,184,0.8) 12%,
-                    transparent 28%,
-                    rgba(148,163,184,0.8) 40%,
-                    transparent 60%);
-            opacity: 0.7;
-            margin: 0.7rem 0 0.9rem;
+                rgba(209,213,219,0.1),
+                rgba(209,213,219,0.9),
+                rgba(209,213,219,0.1)
+            );
+            margin: 0.9rem 0 0.9rem;
         }
 
-        .map-legend {
+        .map-legend-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.7rem;
-            font-size: 0.8rem;
-            color: #4b5563;
+            row-gap: 0.6rem;
+            column-gap: 1.5rem;
+            font-size: 0.88rem;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.45rem;
+            color: var(--text-main);
         }
 
-        .legend-swatch {
-            width: 16px;
-            height: 10px;
+        .legend-dot {
+            width: 9px;
+            height: 9px;
             border-radius: 999px;
-            border: 1px solid rgba(148,163,184,0.7);
         }
 
-        .swatch-risk {
-            background: linear-gradient(to right, #0ea5e9, #22c55e);
+        .legend-dot-blue    { background: #0284c7; }
+        .legend-dot-orange  { background: #f97316; }
+        .legend-dot-green   { background: #22c55e; }
+        .legend-dot-indigo  { background: #2563eb; }
+
+        .map-columns {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 1.4rem;
+            margin-top: 1rem;
+            padding-top: 0.9rem;
+            border-top: 1px dashed rgba(148,163,184,0.55);
         }
 
-        .swatch-pop {
-            background: linear-gradient(to right, #f97316, #ef4444);
+        .map-col-label {
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #9ca3af;
+            margin-bottom: 0.25rem;
         }
 
-        .swatch-elev {
-            background: linear-gradient(to right, #22c55e, #16a34a);
-        }
-
-        .swatch-pluv {
-            background: linear-gradient(to right, #38bdf8, #0ea5e9);
-        }
-
-        .map-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.78rem;
-            color: #6b7280;
-            margin-top: 0.7rem;
-            border-top: 1px dashed rgba(148,163,184,0.6);
-            padding-top: 0.55rem;
+        .map-col-text {
+            font-size: 0.88rem;
+            color: var(--text-muted);
         }
 
         .map-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-top: 0.95rem;
+            gap: 0.5rem;
+            margin-top: 0.9rem;
         }
 
         .map-badge {
             font-size: 0.78rem;
-            padding: 0.22rem 0.8rem;
-            border-radius: 999px;
+            padding: 0.32rem 0.9rem;
+            border-radius: var(--radius-full);
             border: 1px solid rgba(148,163,184,0.55);
             background: #ffffff;
-            color: #374151;
+            color: var(--text-main);
+            box-shadow: 0 8px 16px rgba(15,23,42,0.03);
         }
 
         /* Sections */
@@ -769,43 +760,55 @@
                 </div>
             </div>
 
+            <!-- Nouvelle carte claire -->
+
             <div class="hero-right">
                 <div class="map-card">
                     <div class="map-grid">
-                        <div class="map-inner">
-                            <div class="map-row">
-                                <div class="map-title">
-                                    Risque d’inondation - Grand Abidjan
-                                </div>
-                                <div class="map-pill">
-                                    Multi-critères
+
+                        <div class="map-header">
+                            <div class="map-title">
+                                Risque d’inondation - Grand Abidjan
+                            </div>
+                            <div class="map-pill">
+                                Multi-critères
+                            </div>
+                        </div>
+
+                        <div class="map-line"></div>
+
+                        <div class="map-legend-grid">
+                            <div class="legend-item">
+                                <span class="legend-dot legend-dot-blue"></span>
+                                <span>Intensité du risque</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot legend-dot-orange"></span>
+                                <span>Densité de population</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot legend-dot-green"></span>
+                                <span>Topographie - MNT</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-dot legend-dot-indigo"></span>
+                                <span>Pluviométrie</span>
+                            </div>
+                        </div>
+
+                        <div class="map-columns">
+                            <div>
+                                <div class="map-col-label">Sources</div>
+                                <div class="map-col-text">
+                                    Images satellites, MNT,<br>
+                                    données socio-éco
                                 </div>
                             </div>
-
-                            <div class="map-line"></div>
-
-                            <div class="map-legend">
-                                <div class="legend-item">
-                                    <div class="legend-swatch swatch-risk"></div>
-                                    <span>Intensité du risque</span>
+                            <div>
+                                <div class="map-col-label">Outils</div>
+                                <div class="map-col-text">
+                                    ArcGIS Pro, QGIS
                                 </div>
-                                <div class="legend-item">
-                                    <div class="legend-swatch swatch-pop"></div>
-                                    <span>Densité de population</span>
-                                </div>
-                                <div class="legend-item">
-                                    <div class="legend-swatch swatch-elev"></div>
-                                    <span>Topographie - MNT</span>
-                                </div>
-                                <div class="legend-item">
-                                    <div class="legend-swatch swatch-pluv"></div>
-                                    <span>Pluviométrie</span>
-                                </div>
-                            </div>
-
-                            <div class="map-footer">
-                                <span>Sources - images satellite, MNT, données socio-éco</span>
-                                <span>Outils - ArcGIS Pro, QGIS</span>
                             </div>
                         </div>
                     </div>
@@ -1217,12 +1220,12 @@
                     </div>
 
                     <div class="project-links">
-                        <a href="https://www.arcgis.com/apps/dashboards/594bb8cc8feb4ad7ac42a5695e417f5e" target="_blank" target="_blank">
+                        <a href="https://www.arcgis.com/apps/dashboards/594bb8cc8feb4ad7ac42a5695e417f5e" target="_blank">
                             <svg class="icon-link" viewBox="0 0 24 24" fill="#0ea5e9">
                                 <circle cx="12" cy="12" r="10"/>
                                 <path fill="#fff" d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6"/>
                             </svg>
-                            Voir un tableau de bord 
+                            Voir un tableau de bord
                         </a>
                         <a href="#">
                             <svg class="icon-link" viewBox="0 0 24 24" fill="#16a34a">
@@ -1265,45 +1268,41 @@
                     </div>
                 </div>
 
-               <!-- Projet 4 -->
-<div class="project-card">
-    <div class="project-bg-accent"></div>
-    <div class="project-tag">Pédagogie</div>
+                <!-- Projet 4 -->
+                <div class="project-card">
+                    <div class="project-bg-accent"></div>
+                    <div class="project-tag">Pédagogie</div>
 
-    <h3>Projets étudiants et ateliers SIG</h3>
+                    <h3>Projets étudiants et ateliers SIG</h3>
 
-    <p>
-        Exemple 1 : réalisation d’une carte thématique dans le cadre d’un atelier SIG.
-        Les étudiants apprennent à manipuler des données, à choisir une méthode de
-        discrétisation pertinente, à structurer une légende efficace et à produire
-        une carte conforme aux standards professionnels de la cartographie.
-    </p>
+                    <p>
+                        Exemple 1 : réalisation d’une carte thématique dans le cadre d’un atelier SIG.
+                        Les étudiants apprennent à manipuler des données, à choisir une méthode de
+                        discrétisation pertinente, à structurer une légende efficace et à produire
+                        une carte conforme aux standards professionnels de la cartographie.
+                    </p>
 
-    <div class="project-meta">
-        <span>Licence et Master</span>
-        <span>Études de cas urbains</span>
-    </div>
+                    <div class="project-meta">
+                        <span>Licence et Master</span>
+                        <span>Études de cas urbains</span>
+                    </div>
 
-    <!-- 🔗 Lien vers la carte -->
-    <div class="project-links" style="margin-top:1rem;">
+                    <div class="project-links" style="margin-top:1rem;">
+                        <a href="https://arcg.is/1SGCmL1"
+                           target="_blank"
+                           class="project-link">
+                            <svg class="icon-link" viewBox="0 0 24 24" width="20" height="20"
+                                 style="vertical-align:middle; margin-right:6px;">
+                                <circle cx="12" cy="12" r="10" fill="#026cbe"/>
+                                <path d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6s-6-2.7-6-6z"
+                                      fill="#fff"/>
+                            </svg>
+                            Voir la carte ArcGIS
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-        <a href="https://arcg.is/1SGCmL1"
-           target="_blank"
-           class="project-link">
-
-            <!-- Icône ArcGIS -->
-            <svg class="icon-link" viewBox="0 0 24 24" width="20" height="20"
-                 style="vertical-align:middle; margin-right:6px;">
-                <circle cx="12" cy="12" r="10" fill="#026cbe"/>
-                <path d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6s-6-2.7-6-6z"
-                      fill="#fff"/>
-            </svg>
-
-            Voir la carte ArcGIS
-        </a>
-
-    </div>
-</div>
             <p style="font-size:0.85rem; color:var(--text-muted); margin-top:1.2rem;">
                 Des exemples de cartes (format 16:9) pourront être ajoutés ici sous forme
                 de vignettes cliquables.

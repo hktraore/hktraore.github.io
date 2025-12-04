@@ -362,10 +362,37 @@
             color: var(--text-main);
         }
 
-        /* Hero carte */
+        /* Hero carte + photo */
 
         .hero-right {
             position: relative;
+        }
+
+        .hero-photo-wrapper {
+            position: absolute;
+            top: -40px; /* remonte la photo au-dessus de la carte */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 14px 28px rgba(15,23,42,0.25);
+            background: #e5e7eb;
+        }
+
+        .hero-photo-caption {
+            margin-top: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
         }
 
         .map-card {
@@ -379,6 +406,7 @@
             border: 1px solid rgba(148,163,184,0.35);
             box-shadow: 0 20px 40px rgba(15,23,42,0.10);
             overflow: hidden;
+            margin-top: 3.5rem; /* laisse la place à la photo au-dessus */
         }
 
         .map-grid {
@@ -571,32 +599,6 @@
             background: rgba(249,250,251,0.98);
             color: var(--text-muted);
         }
-
-        /* Photo de profil dans le hero */
-
-.hero-photo-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.2rem;
-}
-
-.hero-photo {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ffffff;
-    box-shadow: 0 14px 28px rgba(15,23,42,0.25);
-    background: #e5e7eb;
-}
-
-.hero-photo-caption {
-    margin-top: 0.4rem;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    text-align: center;
-}
-
 
         /* Timeline */
 
@@ -923,71 +925,106 @@
 
     <!-- HERO -->
 
-<div class="hero-right">
+    <section class="hero tab-section active" id="apropos">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-kicker"><span></span> Géographie, risques & SIG</div>
+                <h1>
+                    Docteur en géographie, spécialiste des
+                    <span class="hero-highlight">risques naturels</span>
+                    et des SIG.
+                </h1>
+                <p class="hero-subtitle">
+                    Docteur en géographie et ATER à l’Université de Lorraine, je travaille
+                    sur la modélisation des risques d’inondation et des recompositions urbaines
+                    dans le Grand Abidjan, en mobilisant les SIG, la télédétection et les
+                    données socio-spatiales.
+                </p>
 
-    <!-- Photo de profil -->
-    <div class="hero-photo-wrapper">
-        <div>
-            <img
-                src="https://hktraore.github.io/ma_photo.jpg"
-                alt="Photo de Habal Kassoum Traoré"
-                class="hero-photo"
-            >
-            <div class="hero-photo-caption">
-                Habal Kassoum Traoré<br>
-                Géographe & spécialiste des risques
-            </div>
-        </div>
-    </div>
-
-    <!-- Carte de risque -->
-    <div class="map-card">
-        <div class="map-grid">
-            <div class="map-inner">
-                <div class="map-row">
-                    <div class="map-title">
-                        Risque d’inondation - Grand Abidjan
-                    </div>
-                    <div class="map-pill">
-                        Multi-critères
-                    </div>
+                <div class="hero-tags">
+                    <div class="tag">Risques d’inondation</div>
+                    <div class="tag">SIG - ArcGIS Pro, QGIS</div>
+                    <div class="tag">Télédétection</div>
+                    <div class="tag">Analyse multi-critères (AHP, Fuzzy-AHP)</div>
+                    <div class="tag">Urbanisation</div>
+                    <div class="tag">Grand Abidjan</div>
                 </div>
 
-                <div class="map-line"></div>
-
-                <div class="map-legend">
-                    <div class="legend-item">
-                        <div class="legend-swatch swatch-risk"></div>
-                        <span>Intensité du risque</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-swatch swatch-pop"></div>
-                        <span>Densité de population</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-swatch swatch-elev"></div>
-                        <span>Topographie - MNT</span>
-                    </div>
-                    <div class="legend-item">
-                        <div class="legend-swatch swatch-pluv"></div>
-                        <span>Pluviométrie</span>
-                    </div>
-                </div>
-
-                <div class="map-footer">
-                    <span>Sources - images satellites, MNT, données socio-éco</span>
-                    <span>Outils - ArcGIS Pro, QGIS</span>
+                <div class="hero-actions">
+                    <a href="#projets" class="btn-primary tab-link">
+                        Voir quelques travaux SIG
+                    </a>
+                    <a href="#parcours" class="btn-ghost tab-link">
+                        Parcours et compétences
+                    </a>
                 </div>
             </div>
-        </div>
 
-        <div class="map-badges">
-            <div class="map-badge">SIG & télédétection</div>
-            <div class="map-badge">Validation par événements observés</div>
-            <div class="map-badge">Appui à la décision territoriale</div>
+            <div class="hero-right">
+                <!-- Photo de profil au-dessus de la carte -->
+                <div class="hero-photo-wrapper">
+                    <div>
+                        <img
+                            src="https://hktraore.github.io/ma_photo.jpg"
+                            alt="Photo de Habal Kassoum Traoré"
+                            class="hero-photo"
+                        >
+                        <div class="hero-photo-caption">
+                            Habal Kassoum Traoré<br>
+                            Géographe & spécialiste des risques
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carte de risque -->
+                <div class="map-card">
+                    <div class="map-grid">
+                        <div class="map-inner">
+                            <div class="map-row">
+                                <div class="map-title">
+                                    Risque d’inondation - Grand Abidjan
+                                </div>
+                                <div class="map-pill">
+                                    Multi-critères
+                                </div>
+                            </div>
+
+                            <div class="map-line"></div>
+
+                            <div class="map-legend">
+                                <div class="legend-item">
+                                    <div class="legend-swatch swatch-risk"></div>
+                                    <span>Intensité du risque</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-swatch swatch-pop"></div>
+                                    <span>Densité de population</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-swatch swatch-elev"></div>
+                                    <span>Topographie - MNT</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-swatch swatch-pluv"></div>
+                                    <span>Pluviométrie</span>
+                                </div>
+                            </div>
+
+                            <div class="map-footer">
+                                <span>Sources - images satellites, MNT, données socio-éco</span>
+                                <span>Outils - ArcGIS Pro, QGIS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-badges">
+                        <div class="map-badge">SIG & télédétection</div>
+                        <div class="map-badge">Validation par événements observés</div>
+                        <div class="map-badge">Appui à la décision territoriale</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
     </section>
 
     <!-- PARCOURS -->
@@ -1157,7 +1194,6 @@
                         </ul>
                     </div>
 
-                    <!-- Principaux résultats : version cliquable -->
                     <div class="card">
                         <h3>Principaux résultats</h3>
 
@@ -1221,7 +1257,6 @@
                         </p>
                     </div>
 
-                    <!-- Données mobilisées : maintenant cliquable -->
                     <div class="card">
                         <h3>Données mobilisées</h3>
                         <ul class="thesis-results-list">
@@ -1413,7 +1448,6 @@
             </div>
 
             <div class="projects-grid">
-                <!-- Projet 1 -->
                 <div class="project-card">
                     <div class="project-bg-accent"></div>
                     <div class="project-tag">Risque d’inondation</div>
@@ -1446,7 +1480,6 @@
                     </div>
                 </div>
 
-                <!-- Projet 2 - Tableaux de bord -->
                 <div class="project-card">
                     <div class="project-bg-accent"></div>
                     <div class="project-tag">Tableaux de bord</div>
@@ -1481,7 +1514,6 @@
                     </div>
                 </div>
 
-                <!-- Projet 3 -->
                 <div class="project-card">
                     <div class="project-bg-accent"></div>
                     <div class="project-tag">Pédagogie - Analyse spatiale</div>
@@ -1514,13 +1546,10 @@
                     </div>
                 </div>
 
-                <!-- Projet 4 -->
                 <div class="project-card">
                     <div class="project-bg-accent"></div>
                     <div class="project-tag">Pédagogie - Cartes thématiques</div>
-
                     <h3>Projets étudiants et ateliers SIG</h3>
-
                     <p>
                         Réalisation d’une carte thématique dans le cadre d’un atelier SIG.
                         Les étudiants apprennent à manipuler des données, à choisir une méthode de
@@ -1534,15 +1563,12 @@
                     </div>
 
                     <div class="project-links">
-                        <a href="https://arcg.is/1SGCmL1"
-                           target="_blank">
-
+                        <a href="https://arcg.is/1SGCmL1" target="_blank">
                             <svg class="icon-link" viewBox="0 0 24 24" width="20" height="20">
                                 <circle cx="12" cy="12" r="10" fill="#026cbe"/>
                                 <path d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6s-6-2.7-6-6z"
                                       fill="#fff"/>
                             </svg>
-
                             Voir la carte ArcGIS
                         </a>
                     </div>

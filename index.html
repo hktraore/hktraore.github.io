@@ -170,10 +170,92 @@
             width: 72%;
         }
 
+        /* BANNIÈRE D'ACCROCHE */
+
+        .top-banner {
+            position: relative;
+            z-index: 40;
+            background: radial-gradient(circle at 0 0, rgba(187,247,208,0.9), transparent 60%),
+                        radial-gradient(circle at 100% 100%, rgba(34,197,94,0.28), transparent 55%);
+        }
+
+        .banner-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.4rem;
+            padding: 0.85rem 0;
+        }
+
+        .banner-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .banner-text-strong {
+            font-size: 0.93rem;
+            font-weight: 600;
+            color: #064e3b;
+        }
+
+        .banner-text-sub {
+            font-size: 0.85rem;
+            color: #047857;
+        }
+
+        .banner-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .banner-btn-primary,
+        .banner-btn-ghost {
+            border-radius: var(--radius-full);
+            padding: 0.35rem 0.95rem;
+            font-size: 0.82rem;
+            border: 1px solid transparent;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            white-space: nowrap;
+        }
+
+        .banner-btn-primary {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: #ecfdf5;
+            box-shadow: 0 10px 20px rgba(22,163,74,0.35);
+        }
+
+        .banner-btn-primary:hover {
+            filter: brightness(1.06);
+        }
+
+        .banner-btn-ghost {
+            background: rgba(240,253,244,0.9);
+            border-color: rgba(22,163,74,0.5);
+            color: #065f46;
+        }
+
+        .banner-btn-ghost:hover {
+            background: #dcfce7;
+        }
+
+        @media (max-width: 720px) {
+            .banner-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0.9rem 0;
+            }
+        }
+
         /* Hero */
 
         .hero {
-            padding: 3.4rem 0 3rem;
+            padding: 3.0rem 0 3rem;
         }
 
         .hero-grid {
@@ -790,6 +872,29 @@
         </div>
     </header>
 
+    <!-- BANNIÈRE VERTE D'ACCROCHE -->
+
+    <div class="top-banner">
+        <div class="container banner-inner">
+            <div class="banner-text">
+                <div class="banner-text-strong">
+                    Explorer les territoires avec les SIG et la télédétection
+                </div>
+                <div class="banner-text-sub">
+                    Cartes interactives, tableaux de bord et analyses des risques au service de l’aménagement.
+                </div>
+            </div>
+            <div class="banner-actions">
+                <a href="#projets" class="banner-btn-primary tab-link">
+                    Voir les cartes & projets
+                </a>
+                <a href="#these" class="banner-btn-ghost tab-link">
+                    Découvrir la thèse
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- HERO -->
 
     <section class="hero tab-section active" id="apropos">
@@ -1373,13 +1478,13 @@
                 <div class="project-card">
                     <div class="project-bg-accent"></div>
                     <div class="project-tag">Pédagogie - Analyse spatiale</div>
-                    <h3> Densité des intersections: principaux axes structurants (Nancy)</h3>
-                      <p>
+                    <h3>Densité des intersections : principaux axes structurants (Nancy)</h3>
+                    <p>
                         Réalisation d'une analyse spatiale de la densité des intersections des principales voiries à Nancy. 
                         Des géotraitements ont été effectués à partir d’un maillage régulier et du réseau viaire. 
                         Elle permettra aux étudiants (principalement en Licence 3) d'effectuer un diagnostic simple en lien 
                         avec des projets tutorés dans le cadre de leurs formation.
-                      </p>
+                    </p>
                     <div class="project-meta">
                         <span>Licence 3</span>
                         <span>Analyse spatiale</span>
@@ -1405,7 +1510,7 @@
                 <!-- Projet 4 -->
                 <div class="project-card">
                     <div class="project-bg-accent"></div>
-                    <div class="project-tag">Pédagogie - Cartes thematiques</div>
+                    <div class="project-tag">Pédagogie - Cartes thématiques</div>
 
                     <h3>Projets étudiants et ateliers SIG</h3>
 

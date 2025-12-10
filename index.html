@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Habal Kassoum Traoré – Géographe, SIG & risques naturels</title>
+    <meta name="description" content="Portfolio de Habal Kassoum Traoré, Docteur en géographie. Spécialiste des risques naturels, inondations, SIG et télédétection dans le Grand Abidjan.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         :root {
@@ -44,6 +45,8 @@
 
         .page {
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
@@ -56,9 +59,15 @@
 
         .tab-section {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
         .tab-section.active {
             display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Navbar */
@@ -79,13 +88,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem 0;
+            padding: 0.75rem 1.25rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            text-decoration: none;
+            color: inherit;
         }
 
         .logo-mark {
@@ -125,11 +136,7 @@
             border-radius: var(--radius-full);
             font-weight: 500;
             letter-spacing: 0.03em;
-            transition:
-                color 0.2s ease,
-                background 0.2s ease,
-                box-shadow 0.2s ease,
-                transform 0.15s ease;
+            transition: all 0.2s ease;
         }
 
         nav a::after {
@@ -184,7 +191,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 1.4rem;
-            padding: 0.85rem 0;
+            padding: 0.85rem 1.25rem;
         }
 
         .banner-text {
@@ -248,7 +255,7 @@
             .banner-inner {
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 0.9rem 0;
+                padding: 0.9rem 1.25rem;
             }
         }
 
@@ -288,11 +295,13 @@
             font-size: clamp(2.1rem, 4vw, 2.7rem);
             font-weight: 700;
             margin-bottom: 0.5rem;
+            line-height: 1.2;
         }
 
         .hero-highlight {
             background: linear-gradient(120deg, #16a34a, #0ea5e9);
             -webkit-background-clip: text;
+            background-clip: text;
             color: transparent;
         }
 
@@ -339,6 +348,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
+            transition: all 0.2s;
         }
 
         .btn-primary {
@@ -349,6 +359,7 @@
 
         .btn-primary:hover {
             filter: brightness(1.05);
+            transform: translateY(-2px);
         }
 
         .btn-ghost {
@@ -386,13 +397,6 @@
             border: 4px solid #ffffff;
             box-shadow: 0 14px 28px rgba(15,23,42,0.25);
             background: #e5e7eb;
-        }
-
-        .hero-photo-caption {
-            margin-top: 0.4rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
         }
 
         .map-card {
@@ -483,21 +487,10 @@
             border: 1px solid rgba(148,163,184,0.7);
         }
 
-        .swatch-risk {
-            background: linear-gradient(to right, #0ea5e9, #22c55e);
-        }
-
-        .swatch-pop {
-            background: linear-gradient(to right, #f97316, #ef4444);
-        }
-
-        .swatch-elev {
-            background: linear-gradient(to right, #22c55e, #16a34a);
-        }
-
-        .swatch-pluv {
-            background: linear-gradient(to right, #38bdf8, #0ea5e9);
-        }
+        .swatch-risk { background: linear-gradient(to right, #0ea5e9, #22c55e); }
+        .swatch-pop { background: linear-gradient(to right, #f97316, #ef4444); }
+        .swatch-elev { background: linear-gradient(to right, #22c55e, #16a34a); }
+        .swatch-pluv { background: linear-gradient(to right, #38bdf8, #0ea5e9); }
 
         .map-footer {
             display: flex;
@@ -568,10 +561,7 @@
             border: 1px solid var(--border-subtle);
             padding: 1.25rem 1.3rem;
             box-shadow: 0 10px 20px rgba(15,23,42,0.02);
-        }
-
-        .card + .card {
-            margin-top: 0.9rem;
+            margin-bottom: 0.9rem;
         }
 
         .card h3 {
@@ -690,7 +680,7 @@
 
         /* Projects (cartes & projets) */
 
-        .project-card {
+        .project-card, .pub-card {
             background: var(--panel-soft);
             border-radius: var(--radius-lg);
             border: 1px solid var(--border-subtle);
@@ -699,9 +689,11 @@
             overflow: hidden;
             box-shadow: 0 10px 22px rgba(15,23,42,0.03);
             transition: transform 0.28s ease, box-shadow 0.28s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .project-card:hover {
+        .project-card:hover, .pub-card:hover {
             transform: translateY(-6px) scale(1.015);
             box-shadow: 0 18px 32px rgba(15,23,42,0.12);
         }
@@ -714,15 +706,16 @@
             letter-spacing: 0.12em;
         }
 
-        .project-card h3 {
+        .project-card h3, .pub-card h3 {
             font-size: 0.98rem;
             margin-bottom: 0.25rem;
         }
 
-        .project-card p {
+        .project-card p, .pub-card p {
             font-size: 0.86rem;
             color: var(--text-muted);
             margin-bottom: 0.6rem;
+            flex-grow: 1;
         }
 
         .project-meta {
@@ -731,6 +724,7 @@
             gap: 0.4rem;
             font-size: 0.75rem;
             color: var(--text-muted);
+            margin-bottom: 0.8rem;
         }
 
         .project-bg-accent {
@@ -746,7 +740,7 @@
         }
 
         .project-links {
-            margin-top: 0.85rem;
+            margin-top: auto;
             padding-top: 0.6rem;
             border-top: 1px solid rgba(148,163,184,0.28);
             display: flex;
@@ -754,7 +748,7 @@
             gap: 0.25rem;
         }
 
-        .project-links a {
+        .project-links a, .pub-link {
             font-size: 0.82rem;
             text-decoration: none;
             color: var(--accent-2);
@@ -764,7 +758,7 @@
             gap: 6px;
         }
 
-        .project-links a:hover {
+        .project-links a:hover, .pub-link:hover {
             text-decoration: underline;
             color: var(--accent);
         }
@@ -780,7 +774,7 @@
             opacity: 1;
         }
 
-        /* Catégorisation des projets – style premium */
+        /* Catégorisation des projets */
 
         .projects-categories {
             display: grid;
@@ -854,6 +848,13 @@
             grid-template-columns: minmax(0, 1fr);
             gap: 0.9rem;
         }
+        
+        /* Publications Grid */
+        .pub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.2rem;
+        }
 
         /* Contact */
 
@@ -906,6 +907,7 @@
             font-size: 0.8rem;
             color: var(--text-muted);
             text-align: center;
+            margin-top: auto;
         }
 
         /* Responsive */
@@ -916,6 +918,7 @@
             }
             .hero-right {
                 order: -1;
+                margin-top: 2rem;
             }
         }
 
@@ -953,29 +956,25 @@
 <body>
 <div class="page">
 
-    <!-- HEADER -->
-
     <header>
         <div class="container nav">
-            <div class="logo">
+            <a href="#apropos" class="logo tab-link">
                 <div class="logo-mark">KT</div>
                 <div class="logo-text">Habal Kassoum Traoré</div>
-            </div>
+            </a>
             <nav>
                 <ul>
-                    <li><a href="#apropos">À propos</a></li>
-                    <li><a href="#parcours">Parcours</a></li>
-                    <li><a href="#these">Thèse</a></li>
-                    <li><a href="#enseignement">Enseignement</a></li>
-                    <li><a href="#projets">Cartes & projets</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#apropos" class="tab-link active-tab-link">À propos</a></li>
+                    <li><a href="#parcours" class="tab-link">Parcours</a></li>
+                    <li><a href="#these" class="tab-link">Thèse</a></li>
+                    <li><a href="#enseignement" class="tab-link">Enseignement</a></li>
+                    <li><a href="#projets" class="tab-link">Cartes & projets</a></li>
+                    <li><a href="#publications" class="tab-link">Publications</a></li>
+                    <li><a href="#contact" class="tab-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <!-- BANNIÈRE VERTE D'ACCROCHE -->
 
     <div class="top-banner">
         <div class="container banner-inner">
@@ -998,8 +997,6 @@
         </div>
     </div>
 
-    <!-- HERO -->
-
     <section class="hero tab-section active" id="apropos">
         <div class="container hero-grid">
             <div>
@@ -1020,7 +1017,7 @@
                     <div class="tag">Risques d’inondation</div>
                     <div class="tag">SIG - ArcGIS Pro, QGIS</div>
                     <div class="tag">Télédétection</div>
-                    <div class="tag">Analyse multi-critères (AHP, Fuzzy-AHP)</div>
+                    <div class="tag">Analyse multi-critères (AHP)</div>
                     <div class="tag">Urbanisation</div>
                     <div class="tag">Grand Abidjan</div>
                 </div>
@@ -1036,19 +1033,16 @@
             </div>
 
             <div class="hero-right">
-                <!-- Photo de profil au-dessus de la carte -->
                 <div class="hero-photo-wrapper">
                     <div>
                         <img
                             src="https://hktraore.github.io/image/Photo_site.jpg"
                             alt="Photo de Habal Kassoum Traoré"
                             class="hero-photo"
+                            onerror="this.src='https://loterr.univ-lorraine.fr/wp-content/uploads/2021/11/Traore-Habal-200x300.jpg'"
                         >
-                        <div class="hero-photo-caption">
-                        </div>
                     </div>
                 </div>
-                <!-- Carte de risque -->
                 <div class="map-card">
                     <div class="map-grid">
                         <div class="map-inner">
@@ -1099,8 +1093,6 @@
         </div>
     </section>
 
-    <!-- PARCOURS -->
-
     <section id="parcours" class="tab-section">
         <div class="container">
             <div class="section-header">
@@ -1120,13 +1112,13 @@
                         <div class="timeline">
                             <div class="timeline-item">
                                 <div class="timeline-title">
-                                    Thèse en géographie – risques naturels, SIG, télédétection, urbanisation
+                                    Thèse en géographie – risques naturels, SIG, télédétection
                                 </div>
                                 <div class="timeline-meta">
                                     Université de Lorraine, Metz – Sept. 2021 à 2025<br>
                                     « Risques naturels et recomposition dans le Grand Abidjan
                                     (Côte d’Ivoire) : du recueil à la modélisation des données
-                                    spatiales ». Thèse de doctorat soutenue en 2025.
+                                    spatiales ». Thèse soutenue en 2025.
                                 </div>
                             </div>
                             <div class="timeline-item">
@@ -1177,12 +1169,12 @@
                             problématiques d’aménagement et de risques.
                         </p>
                         <div class="pill-row">
-                            <div class="pill">Analyse spatiale appliquée aux projets d’aménagement</div>
-                            <div class="pill">Analyse d’images satellites (télédétection)</div>
+                            <div class="pill">Analyse spatiale appliquée</div>
+                            <div class="pill">Analyse d’images satellites</div>
                             <div class="pill">Modélisation hiérarchique multi-critères</div>
-                            <div class="pill">Aide à la décision et indicateurs composites</div>
+                            <div class="pill">Aide à la décision</div>
                             <div class="pill">Deep Learning sur ArcGIS Pro</div>
-                            <div class="pill">Représentation cartographique avancée</div>
+                            <div class="pill">Représentation cartographique</div>
                         </div>
                     </div>
 
@@ -1196,8 +1188,7 @@
                             <strong>Cartographie et DAO :</strong> Illustrator, Inkscape, Phildigit, Philcarto, Magrit.
                         </p>
                         <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.4rem;">
-                            <strong>Bureautique et rédaction :</strong> Suite Office (Word, Excel, PowerPoint),
-                            LaTeX (notions).
+                            <strong>Bureautique et rédaction :</strong> Suite Office, LaTeX (notions).
                         </p>
                         <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.4rem;">
                             <strong>Langages :</strong> SQL, R, Matlab (notions).
@@ -1218,8 +1209,6 @@
         </div>
     </section>
 
-    <!-- THESE -->
-
     <section id="these" class="tab-section">
         <div class="container">
             <div class="section-header">
@@ -1227,15 +1216,14 @@
                 <div class="section-title">Risques naturels et recomposition dans le Grand Abidjan</div>
                 <p class="section-description">
                     Travaux de doctorat consacrés à la compréhension et à la cartographie des risques
-                    dans le Grand Abidjan, avec un focus sur les risques d’inondation et de mouvements de terrain,
-                    la vulnérabilité des populations et les recompositions urbaines.
+                    dans le Grand Abidjan, avec un focus sur les risques d’inondation et de mouvements de terrain.
                 </p>
             </div>
 
             <div class="grid-two">
                 <div>
                     <div class="card">
-                        <h3>Titre, contexte et soutenance</h3>
+                        <h3>Titre et contexte</h3>
                         <p>
                             <strong>Titre :</strong> « Risques naturels et recomposition dans le Grand Abidjan
                             (Côte d’Ivoire) : du recueil à la modélisation des données spatiales ».
@@ -1243,269 +1231,119 @@
                         <p style="margin-top:0.5rem; font-size:0.9rem; color:var(--text-muted);">
                             Cette thèse interroge les liens entre la croissance urbaine, les dynamiques
                             d’occupation du sol et l’exposition croissante des populations aux aléas
-                            hydrométéorologiques dans une métropole tropicale humide.
+                            hydrométéorologiques.
                         </p>
                         <p style="margin-top:0.5rem; font-size:0.9rem; color:var(--text-muted);">
-                            <strong>Soutenance :</strong> thèse de doctorat soutenue en 2025 à l’Université de Lorraine,
-                            sur le site de l’INSPE de Montigny-lès-Metz.
+                            <strong>Soutenance :</strong> 2025, Université de Lorraine.
                         </p>
                     </div>
 
                     <div class="card">
-                        <h3>Problématique et objectifs</h3>
-                        <p style="font-size:0.9rem; color:var(--text-muted);">
-                            La recherche s’articule autour d’une question centrale : comment caractériser et
-                            spatialiser le risque d’inondation dans un contexte de forte urbanisation,
-                            en tenant compte à la fois des aléas, des enjeux et de la vulnérabilité sociale ?
-                        </p>
+                        <h3>Objectifs</h3>
                         <ul style="font-size:0.88rem; color:var(--text-muted); padding-left:1.1rem; margin-top:0.5rem;">
-                            <li>Décrire les dynamiques d’urbanisation et les transformations des espaces exposés aux inondations.</li>
+                            <li>Décrire les dynamiques d’urbanisation et les transformations des espaces exposés.</li>
                             <li>Construire des indicateurs spatialisés de danger, d’enjeux et de vulnérabilité.</li>
                             <li>Élaborer un indice de risque multi-critères adapté au contexte du Grand Abidjan.</li>
-                            <li>Proposer des grilles de lecture mobilisables par les acteurs de l’aménagement et de la gestion des risques.</li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h3>Principaux résultats</h3>
-
-                        <ul class="thesis-results-list">
-
-                            <li class="thesis-results-item">
-                                <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Cartographie multi-échelles des zones les plus exposées aux inondations
-                                    dans le Grand Abidjan
-                                    <span>↗</span>
-                                </a>
-                            </li>
-
-                            <li class="thesis-results-item">
-                                <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Mise en évidence du rôle des dynamiques d’urbanisation et du remplissage
-                                    progressif des bas-fonds
-                                    <span>↗</span>
-                                </a>
-                            </li>
-
-                            <li class="thesis-results-item">
-                                <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Construction d’un indice de risque combinant aléa, enjeux et vulnérabilité sociale
-                                    <span>↗</span>
-                                </a>
-                            </li>
-
-                            <li class="thesis-results-item">
-                                <div class="thesis-results-bullet"></div>
-                                <a href="https://hktraore.github.io/Figure%208-1.png" class="thesis-result-link">
-                                    Identification de quartiers prioritaires pour l’action publique
-                                    et la planification urbaine
-                                    <span>↗</span>
-                                </a>
-                            </li>
-
                         </ul>
                     </div>
                 </div>
 
                 <div>
                     <div class="card">
-                        <h3>Encadrement et cadre institutionnel</h3>
-                        <p style="font-size:0.9rem; color:var(--text-muted);">
-                            Thèse réalisée au sein du laboratoire LOTERR (Université de Lorraine, Metz), en
-                            lien avec des institutions ivoiriennes en charge de la gestion des risques et de
-                            l’aménagement urbain.
-                        </p>
-                        <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.45rem;">
-                            <strong>Direction de thèse :</strong><br>
-                            Encadrement assuré par une équipe pluridisciplinaire en géographie, hydrologie
-                            et géomatique.
-                        </p>
-                        <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.4rem;">
-                            (Les noms des directeurs et du jury pourront être ajoutés ici lorsque tu souhaiteras
-                            détailler la composition complète.)
-                        </p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Données mobilisées</h3>
+                        <h3>Principaux résultats</h3>
                         <ul class="thesis-results-list">
-
                             <li class="thesis-results-item">
                                 <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Images satellites (Sentinel, Landsat) pour l’occupation du sol
-                                    et les dynamiques urbaines
-                                    <span>↗</span>
-                                </a>
+                                <div class="thesis-result-link">
+                                    Cartographie multi-échelles des zones les plus exposées aux inondations.
+                                </div>
                             </li>
-
                             <li class="thesis-results-item">
                                 <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Modèles numériques de terrain pour l’analyse des pentes,
-                                    des convergences de flux et des zones basses
-                                    <span>↗</span>
-                                </a>
+                                <div class="thesis-result-link">
+                                    Mise en évidence du rôle du remplissage progressif des bas-fonds.
+                                </div>
                             </li>
-
                             <li class="thesis-results-item">
                                 <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Données pluviométriques issues de stations
-                                    et de produits satellitaires
-                                    <span>↗</span>
-                                </a>
+                                <div class="thesis-result-link">
+                                    Construction d’un indice de risque combinant aléa et vulnérabilité sociale.
+                                </div>
                             </li>
-
-                            <li class="thesis-results-item">
-                                <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Données socio-économiques pour appréhender densités,
-                                    formes urbaines et vulnérabilité sociale
-                                    <span>↗</span>
-                                </a>
-                            </li>
-
-                            <li class="thesis-results-item">
-                                <div class="thesis-results-bullet"></div>
-                                <a href="#" target="_blank" class="thesis-result-link">
-                                    Archives, rapports institutionnels et retours de terrain
-                                    sur les événements d’inondation
-                                    <span>↗</span>
-                                </a>
-                            </li>
-
                         </ul>
                     </div>
 
                     <div class="card">
-                        <h3>Méthodes et approches</h3>
+                        <h3>Méthodes</h3>
                         <div class="pill-row">
-                            <div class="pill">Analyse multi-critères (AHP, Fuzzy-AHP)</div>
-                            <div class="pill">SIG et télédétection</div>
-                            <div class="pill">Construction d’indices composites</div>
-                            <div class="pill">Validation par événements observés</div>
-                            <div class="pill">Analyse spatiale multi-échelles</div>
-                            <div class="pill">Croisement quantitatif / qualitatif</div>
+                            <div class="pill">AHP / Fuzzy-AHP</div>
+                            <div class="pill">Télédétection</div>
+                            <div class="pill">Validation par événements passés</div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <p style="margin-top:1.4rem; font-size:0.86rem; color:var(--text-muted);">
-                <strong>Mots-clés :</strong> risques naturels, inondation, vulnérabilité, urbanisation,
-                SIG, télédétection, analyse multi-critères, Grand Abidjan, Côte d’Ivoire.
-            </p>
-            <p style="margin-top:0.7rem; font-size:0.86rem;">
-                <a href="#" target="_blank"
+            
+            <p style="margin-top:0.7rem; font-size:0.86rem; text-align: center;">
+                <a href="https://loterr.univ-lorraine.fr/soutenance-de-these-de-kassoum-habal-traore/" target="_blank"
                    style="display:inline-block; padding:0.45rem 0.9rem; border-radius:999px;
                           border:1px solid rgba(148,163,184,0.6); text-decoration:none;
                           color:var(--accent-2); background:#ffffff;">
-                    📄 Télécharger le manuscrit (bientôt disponible)
+                   📄 Voir le résumé de la thèse sur LOTERR
                 </a>
             </p>
         </div>
     </section>
 
-    <!-- ENSEIGNEMENT -->
-
     <section id="enseignement" class="tab-section">
         <div class="container">
             <div class="section-header">
-                <div class="section-kicker">Enseignement et expériences</div>
-                <div class="section-title">Cours assurés et engagements pédagogiques</div>
+                <div class="section-kicker">Enseignement</div>
+                <div class="section-title">Expériences pédagogiques</div>
                 <p class="section-description">
-                    Un investissement fort dans la pédagogie en géographie, SIG et télédétection,
-                    avec un souci constant d’articuler concepts, méthodes et applications
-                    concrètes dans les territoires.
+                    Investissement fort dans la pédagogie en géographie, SIG et télédétection.
                 </p>
             </div>
 
             <div class="grid-two">
                 <div>
                     <div class="card">
-                        <h3>Expériences d’enseignement</h3>
+                        <h3>Parcours enseignant</h3>
                         <div class="timeline">
                             <div class="timeline-item">
-                                <div class="timeline-title">
-                                    Attaché Temporaire d’Enseignement et de Recherche (ATER)
-                                </div>
-                                <div class="timeline-meta">
-                                    Université de Lorraine, Metz – 2024-2026
-                                </div>
+                                <div class="timeline-title">ATER (Attaché Temporaire)</div>
+                                <div class="timeline-meta">Université de Lorraine, Metz – 2024-2026</div>
                             </div>
                             <div class="timeline-item">
-                                <div class="timeline-title">
-                                    Enseignant vacataire
-                                </div>
-                                <div class="timeline-meta">
-                                    Université de Lorraine, Metz/Nancy – 2020-2024
-                                </div>
+                                <div class="timeline-title">Enseignant vacataire</div>
+                                <div class="timeline-meta">Université de Lorraine – 2020-2024</div>
                             </div>
                         </div>
                     </div>
-
                     <div class="card">
                         <h3>Autres expériences</h3>
                         <ul style="font-size:0.86rem; color:var(--text-muted); padding-left:1.1rem; margin-top:0.2rem;">
-                            <li>Stagiaire LOTERR – Stage en télédétection (avril 2019 à juillet 2019).</li>
-                            <li>Vacataire LOTERR – Projet Border Retail (mars 2020).</li>
-                            <li>Encadrement de stagiaires sur la classification d’images et la végétation urbaine.</li>
-                            <li>Représentant des doctorants du laboratoire LOTERR depuis 2022.</li>
+                            <li>Représentant des doctorants du LOTERR (depuis 2022).</li>
                             <li>Membre de l’Association Internationale de Climatologie (AIC).</li>
-                        </ul>
-                    </div>
-
-                    <div class="card">
-                        <h3>Engagements et activités</h3>
-                        <ul style="font-size:0.86rem; color:var(--text-muted); padding-left:1.1rem; margin-top:0.2rem;">
-                            <li>Théâtre à l’espace Bernard-Marie Koltès (Metz).</li>
-                            <li>Bénévolat à l’AFEV (Poitiers, 2017-2018).</li>
-                            <li>Bénévolat à Messins solidaires (Metz, 2021-2022).</li>
                         </ul>
                     </div>
                 </div>
 
                 <div>
                     <div class="card">
-                        <h3>Cours et thématiques enseignées</h3>
-                        <p style="font-size:0.88rem; color:var(--text-muted);">
-                            Les contenus d’enseignement couvrent un continuum allant des bases
-                            des SIG à des approches avancées en télédétection et en analyse des
-                            dynamiques territoriales.
-                        </p>
+                        <h3>Cours enseignés</h3>
                         <ul style="font-size:0.86rem; color:var(--text-muted); padding-left:1.1rem; margin-top:0.5rem;">
-                            <li><strong>SIG – Systèmes d’Information Géographique :</strong> concepts, données, projections, analyses
-                                thématiques et spatiales, requêtes SQL, MNT, indices, géoréférencement.</li>
-                            <li><strong>Cartographie numérique :</strong> construction de cartes statistiques, discrétisation, Philcarto/Magrit,
-                                mise en forme sous Inkscape.</li>
-                            <li><strong>DAO / Illustrator :</strong> cartes, croquis, posters scientifiques, vectorisation et mise en page.</li>
-                            <li><strong>Analyse spatiale appliquée :</strong> MAUP, agrégation territoriale, carroyage, analyse réseau, chemins optimaux,
-                                zones de desserte.</li>
-                            <li><strong>SIG et télédétection approfondis :</strong> traitement d’images, classification supervisée et non supervisée,
-                                matrice de confusion, suivi de dynamiques environnementales.</li>
-                            <li><strong>Techniques d’enquête :</strong> enquêtes qualitatives et quantitatives, guides d’entretien, questionnaires,
-                                analyse des données, étude de la désertification commerciale à Metz.</li>
-                            <li><strong>Analyse des entités régionales :</strong> dynamiques territoriales, critères de délimitation, disparités,
-                                attractivité et gouvernance.</li>
-                            <li><strong>Climat urbain et changement climatique :</strong> îlots de chaleur urbains, impacts sur les populations,
-                                vulnérabilité, stratégies d’adaptation.</li>
-                            <li><strong>Méthodologie de la recherche :</strong> problématique, hypothèses, cadre théorique, collecte et analyse de
-                                données, rédaction académique.</li>
-                            <li><strong>Espaces urbains et ruraux :</strong> définitions, concepts et théories d'organisation spatiale des espaces
-                                urbains et ruraux en France.</li>
+                            <li><strong>SIG & Télédétection :</strong> ArcGIS Pro, QGIS, classification, analyse spatiale.</li>
+                            <li><strong>Cartographie :</strong> Sémiologie graphique, Illustrator, Philcarto.</li>
+                            <li><strong>Analyse spatiale :</strong> Réseaux, flux, accessibilité.</li>
+                            <li><strong>Enquêtes :</strong> Méthodes qualitatives et quantitatives.</li>
+                            <li><strong>Climat urbain :</strong> Îlots de chaleur, vulnérabilité.</li>
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-
-    <!-- PROJETS & CARTES (RÉORGANISÉ PAR CATÉGORIES) -->
 
     <section id="projets" class="tab-section">
         <div class="container">
@@ -1513,226 +1351,99 @@
                 <div class="section-kicker">Cartes et projets</div>
                 <div class="section-title">Travaux SIG et télédétection</div>
                 <p class="section-description">
-                    Quelques exemples de projets mobilisant la télédétection, les SIG et
-                    des approches multi-critères pour analyser les risques, les dynamiques
-                    urbaines et les vulnérabilités territoriales.
+                    Exemples de projets mobilisant la télédétection et les SIG.
                 </p>
             </div>
 
             <div class="projects-categories">
-
-                <!-- Catégorie 1 : Risque d’inondation -->
-
                 <div class="projects-category">
                     <div class="projects-category-header">
                         <div class="projects-category-kicker">Risque & vulnérabilité</div>
-                        <div class="projects-category-title">Risque d’inondation dans le Grand Abidjan</div>
-                        <p class="projects-category-desc">
-                            Projets centrés sur la construction d’indices de risque, la combinaison des aléas,
-                            des enjeux et de la vulnérabilité, avec validation par événements observés.
-                        </p>
+                        <div class="projects-category-title">Risque d’inondation (Abidjan)</div>
                     </div>
-
                     <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-bg-accent"></div>
                             <div class="project-tag">Risque d’inondation</div>
-                            <h3>Indice de risque pour le Grand Abidjan</h3>
+                            <h3>Indice de risque multi-critères</h3>
                             <p>
                                 Construction d’un indice composite combinant aléa, exposition et
-                                vulnérabilité sociale, avec validation par des événements historiques
-                                d’inondation dans la métropole abidjanaise.
+                                vulnérabilité sociale, validé par événements historiques.
                             </p>
-                            <div class="project-meta">
-                                <span>ArcGIS Pro, QGIS</span>
-                                <span>Sentinel, MNT</span>
-                                <span>AHP, Fuzzy-AHP</span>
-                            </div>
-
                             <div class="project-links">
                                 <a href="#" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#10b981">
-                                        <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 17.93V20h-2v-.07A8.005 8.005 0 0 1 4.07 13H4v-2h.07A8.005 8.005 0 0 1 11 4.07V4h2v.07A8.005 8.005 0 0 1 19.93 11H20v2h-.07A8.005 8.005 0 0 1 13 19.93Z"/>
-                                    </svg>
+                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#10b981"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm1 17.93V20h-2v-.07A8.005 8.005 0 0 1 4.07 13H4v-2h.07A8.005 8.005 0 0 1 11 4.07V4h2v.07A8.005 8.005 0 0 1 19.93 11H20v2h-.07A8.005 8.005 0 0 1 13 19.93Z"/></svg>
                                     Voir la carte (bientôt)
-                                </a>
-                                <a href="#" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#0ea5e9">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <path fill="#fff" d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6"/>
-                                    </svg>
-                                    Télécharger les données
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Catégorie 2 : Tableaux de bord & analyse territoriale -->
 
                 <div class="projects-category">
                     <div class="projects-category-header">
                         <div class="projects-category-kicker">Analyse territoriale</div>
-                        <div class="projects-category-title">Tableaux de bord et suivi des territoires</div>
-                        <p class="projects-category-desc">
-                            Tableaux de bord interactifs pour analyser en continu les indicateurs de risques,
-                            de dynamiques urbaines et de vulnérabilité, à partir de données ouvertes.
-                        </p>
+                        <div class="projects-category-title">Tableaux de bord</div>
                     </div>
-
                     <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-bg-accent"></div>
                             <div class="project-tag">Tableaux de bord</div>
-                            <h3>Tableaux de bord interactifs pour l’analyse territoriale</h3>
+                            <h3>Dashboards interactifs</h3>
                             <p>
-                                Conception de tableaux de bord ArcGIS (Dashboard, Experience Builder)
-                                pour visualiser et analyser en temps réel des données spatiales :
-                                risques d’inondation, dynamiques urbaines, indicateurs socio-économiques
-                                et enquêtes territoriales.
+                                Visualisation de données spatiales (risques, dynamiques urbaines) via ArcGIS Dashboard.
                             </p>
-                            <div class="project-meta">
-                                <span>ArcGIS Dashboard</span>
-                                <span>Experience Builder</span>
-                                <span>Données ouvertes</span>
-                                <span>Analyse en temps réel</span>
-                            </div>
-
                             <div class="project-links">
                                 <a href="https://www.arcgis.com/apps/dashboards/594bb8cc8feb4ad7ac42a5695e417f5e" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#0ea5e9">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <path fill="#fff" d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6"/>
-                                    </svg>
+                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#0ea5e9"><circle cx="12" cy="12" r="10"/><path fill="#fff" d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6"/></svg>
                                     Voir un tableau de bord
                                 </a>
-                                <a href="#">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#16a34a">
-                                        <path d="M12 2C9 6 4 8 4 13a8 8 0 0 0 16 0c0-5-5-7-8-11Z"/>
-                                    </svg>
-                                    Accéder aux données utilisées (sous réserve)
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Catégorie 3 : Pédagogie - Analyse spatiale -->
-
                 <div class="projects-category">
                     <div class="projects-category-header">
                         <div class="projects-category-kicker">Pédagogie</div>
-                        <div class="projects-category-title">Ateliers d’analyse spatiale</div>
-                        <p class="projects-category-desc">
-                            Exercices guidés pour les étudiants (Licence et Master) autour de la densité
-                            des réseaux, des flux et des diagnostics territoriaux.
-                        </p>
+                        <div class="projects-category-title">Analyse spatiale & Flux</div>
                     </div>
-
                     <div class="projects-grid">
                         <div class="project-card">
-                            <div class="project-bg-accent"></div>
-                            <div class="project-tag">Pédagogie - Analyse spatiale</div>
-                            <h3>Densité des intersections : principaux axes structurants (Nancy)</h3>
-                            <p>
-                                Réalisation d'une analyse spatiale de la densité des intersections des principales voiries à Nancy.
-                                Des géotraitements ont été effectués à partir d’un maillage régulier et du réseau viaire.
-                                Elle permettra aux étudiants (principalement en Licence 3) d'effectuer un diagnostic simple en lien
-                                avec des projets tutorés dans le cadre de leur formation.
-                            </p>
-                            <div class="project-meta">
-                                <span>Licence 3</span>
-                                <span>Analyse spatiale</span>
-                                <span>QGIS</span>
-                            </div>
-
+                            <div class="project-tag">Nancy</div>
+                            <h3>Densité des intersections</h3>
+                            <p>Analyse spatiale de la densité des intersections des voiries à Nancy (Licence 3).</p>
                             <div class="project-links">
                                 <a href="https://hktraore.github.io/densite_intersections_nancy_webmap/" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#10b981">
-                                        <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Z"/>
-                                    </svg>
                                     Voir la carte en plein écran
-                                </a>
-                                <a href="#" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#16a34a">
-                                        <path d="M12 2C9 6 4 8 4 13a8 8 0 0 0 16 0c0-5-5-7-8-11Z"/>
-                                    </svg>
-                                    Télécharger les données
                                 </a>
                             </div>
                         </div>
-
                         <div class="project-card">
-                            <div class="project-bg-accent"></div>
-                            <div class="project-tag">Pédagogie - Analyse spatiale</div>
-                            <h3>Réalisation de cartes de flux : déplacements d'étudiants (Nancy)</h3>
-                            <p>
-                                Mise en place d’un exercice de cartographie de flux à partir des lieux
-                                de résidence et des lieux d’étude des étudiants de l’agglomération
-                                nancéienne. Le travail s’appuie sur la construction d’une matrice
-                                origine–destination, la création de lignes de flux pondérées et
-                                l’interprétation des principaux axes de mobilité quotidienne.
-                            </p>
-                            <div class="project-meta">
-                                <span>Master 1</span>
-                                <span>Analyse spatiale</span>
-                                <span>ArcGIS Pro</span>
-                            </div>
-
+                            <div class="project-tag">Mobilité</div>
+                            <h3>Carte de flux étudiants</h3>
+                            <p>Cartographie des déplacements domicile-études dans l'agglomération nancéienne.</p>
                             <div class="project-links">
-                                <a href="https://univ-lorraine.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=c6cc5066a9214c3aad4efcd51cc03562&theme=light&bookmarks=true&heading=true&legend=true&information=true&center=6.583810325151509,49.215651708102016&scale=577790.5542885" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#10b981">
-                                        <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Z"/>
-                                    </svg>
-                                    Voir la carte en plein écran
-                                </a>
-                                <a href="#" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" fill="#16a34a">
-                                        <path d="M12 2C9 6 4 8 4 13a8 8 0 0 0 16 0c0-5-5-7-8-11Z"/>
-                                    </svg>
-                                    Télécharger les données
+                                <a href="https://univ-lorraine.maps.arcgis.com/apps/mapviewer/index.html?configurableview=true&webmap=c6cc5066a9214c3aad4efcd51cc03562" target="_blank">
+                                    Voir la carte interactive
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Catégorie 4 : Pédagogie - Cartes thématiques -->
-
-                <div class="projects-category">
+                
+                 <div class="projects-category">
                     <div class="projects-category-header">
                         <div class="projects-category-kicker">Pédagogie</div>
-                        <div class="projects-category-title">Ateliers de cartographie thématique</div>
-                        <p class="projects-category-desc">
-                            Projets où les étudiants construisent des cartes thématiques complètes :
-                            discrétisation, légende, mise en forme et standards professionnels.
-                        </p>
+                        <div class="projects-category-title">Cartographie thématique</div>
                     </div>
-
                     <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-bg-accent"></div>
-                            <div class="project-tag">Pédagogie - Cartes thématiques</div>
-                            <h3>Projets étudiants et ateliers SIG</h3>
-                            <p>
-                                Réalisation d’une carte thématique dans le cadre d’un atelier SIG.
-                                Les étudiants apprennent à manipuler des données, à choisir une méthode de
-                                discrétisation pertinente, à structurer une légende efficace et à produire
-                                une carte conforme aux standards professionnels de la cartographie.
-                            </p>
-
-                            <div class="project-meta">
-                                <span>Licence et Master</span>
-                                <span>Études de cas urbains</span>
-                            </div>
-
+                         <div class="project-card">
+                            <div class="project-tag">Atelier SIG</div>
+                            <h3>Projets étudiants</h3>
+                            <p>Réalisation de cartes respectant les normes sémiologiques (discrétisation, légende).</p>
                             <div class="project-links">
                                 <a href="https://arcg.is/1SGCmL1" target="_blank">
-                                    <svg class="icon-link" viewBox="0 0 24 24" width="20" height="20">
-                                        <circle cx="12" cy="12" r="10" fill="#026cbe"/>
-                                        <path d="M6 12a6 6 0 0 1 12 0c0 3.3-2.7 6-6 6s-6-2.7-6-6z"
-                                              fill="#fff"/>
-                                    </svg>
                                     Voir la carte ArcGIS
                                 </a>
                             </div>
@@ -1741,15 +1452,8 @@
                 </div>
 
             </div>
-
-            <p style="font-size:0.85rem; color:var(--text-muted); margin-top:1.2rem;">
-                Des exemples de cartes (format 16:9) pourront être ajoutés ici sous forme
-                de vignettes cliquables.
-            </p>
         </div>
     </section>
-
-    <!-- PUBLICATIONS -->
 
     <section id="publications" class="tab-section">
         <div class="container">
@@ -1757,79 +1461,122 @@
                 <div class="section-kicker">Publications et communications</div>
                 <div class="section-title">Diffusion scientifique</div>
                 <p class="section-description">
-                    Participation à des conférences internationales et nationales, et
-                    publications portant sur l’évaluation des données satellitaires, les
-                    risques d’inondation et les dynamiques urbaines en milieu tropical
-                    humide.
+                    Articles scientifiques, conférences internationales et vulgarisation sur les risques et la télédétection.
                 </p>
             </div>
 
-            <div class="grid-two">
-                <div>
-                    <div class="card">
-                        <h3>Communications</h3>
-                        <ul style="font-size:0.86rem; color:var(--text-muted); padding-left:1.1rem; margin-top:0.2rem;">
-                            <li>
-                                <strong>EGU - European Geosciences Union</strong> (Vienne, 2024) :<br>
-                                A spatio-temporal analysis of the risks of flooding and landslides in Greater Abidjan, Ivory Coast, by applying a multi-risk framework.
-                            </li>
-                            <li>
-                                <strong>Association Internationale de Climatologie (AIC)</strong> (Bucarest, 2023) :<br>
-                                Évaluation des données satellitaires pour compenser le déficit de stations pluviométriques sur le territoire du Grand Abidjan.
-                            </li>
-                            <li>
-                                <strong>Géo-événement SIG - ESRI</strong> (2022-2023, à distance) :<br>
-                                interventions autour de l’usage des SIG pour l’analyse des risques.
-                            </li>
-                            <li>
-                                <strong>Festival International de Géographie</strong> (Vosges, 2022).
-                            </li>
-                        </ul>
+            <div class="pub-grid">
+
+                <div class="pub-card">
+                    <div class="project-tag">Article scientifique - 2025</div>
+                    <h3>Contribution of satellite images to the spatio-temporal analysis of urban areas in Greater Abidjan (Bingerville)</h3>
+                    <p>
+                        Publié dans le <em>Bulletin de la Société Géographique de Liège</em>. Analyse des dynamiques urbaines locales par imagerie satellitaire.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://popups.ulg.ac.be/0770-7576/index.php?id=7540" target="_blank" rel="noopener noreferrer" class="pub-link">
+                            <svg class="icon-link" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM14 9V3.5L19.5 9H14z"/></svg>
+                            Lire l'article
+                        </a>
                     </div>
                 </div>
 
-                <div>
-                    <div class="card">
-                        <h3>Publications</h3>
-                        <ul style="font-size:0.86rem; color:var(--text-muted); padding-left:1.1rem; margin-top:0.2rem;">
-                            <li>
-                                <strong>Évaluation des données satellitaires pour compenser le déficit de stations pluviométriques sur le territoire du Grand Abidjan (Côte d’Ivoire)</strong> – HAL.
-                            </li>
-                            <li>
-                                <strong>Appréhender l’urbanisation en milieu tropical humide</strong> – HAL.
-                            </li>
-                        </ul>
-                        <p style="font-size:0.84rem; color:var(--text-muted); margin-top:0.6rem;">
-                            Les liens vers les textes complets pourront être ajoutés ici
-                            (HAL, autres archives ouvertes).
-                        </p>
+                <div class="pub-card">
+                    <div class="project-tag">Vulgarisation - 2021</div>
+                    <h3>Appréhender l’urbanisation en milieu tropical humide : le cas du Grand Abidjan</h3>
+                    <p>
+                        <em>Le 4 pages du LOTERR n°10</em>. Synthèse des travaux sur l'urbanisation rapide et ses conséquences environnementales.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://loterr.univ-lorraine.fr/wp-content/uploads/2021/12/4-pages-Loterr-10.pdf" target="_blank" rel="noopener noreferrer" class="pub-link">
+                            <svg class="icon-link" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            Télécharger le PDF
+                        </a>
                     </div>
                 </div>
+
+                <div class="pub-card">
+                    <div class="project-tag">Preprint / En révision - 2025</div>
+                    <h3>Flood and landslide risk mapping based on a multi-criteria analysis (MCA) in Greater Abidjan</h3>
+                    <p>
+                        <em>EGUsphere</em>. Cartographie multi-risques utilisant l'analyse hiérarchique (AHP).
+                    </p>
+                    <div class="project-links">
+                        <a href="https://doi.org/10.5194/egusphere-2025-2925" target="_blank" rel="noopener noreferrer" class="pub-link">
+                            <svg class="icon-link" viewBox="0 0 24 24" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                            Voir le preprint
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="project-tag">Communication EGU - 2024</div>
+                    <h3>Spatio-temporal analysis of the risks of flooding and landslides in Greater Abidjan</h3>
+                    <p>
+                        Présentation à l'Assemblée Générale de l'Union Européenne des Géosciences (Vienne).
+                    </p>
+                    <div class="project-links">
+                        <a href="https://doi.org/10.5194/egusphere-egu24-538" target="_blank" rel="noopener noreferrer" class="pub-link">
+                            <svg class="icon-link" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                            Consulter l'abstract
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="project-tag">Communication AIC - 2023</div>
+                    <h3>Données satellitaires et déficit de stations pluviométriques</h3>
+                    <p>
+                        Colloque de l'Association Internationale de Climatologie (Bucarest). Évaluation des produits satellitaires (IMERG, CHIRPS).
+                    </p>
+                    <div class="project-links">
+                        <a href="https://hal.univ-lorraine.fr/hal-04103571" target="_blank" rel="noopener noreferrer" class="pub-link">
+                            <svg class="icon-link" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            Voir sur HAL
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pub-card">
+                    <div class="project-tag">Conférence ESRI - 2023</div>
+                    <h3>Dynamique du bâti à Bingerville : classification supervisée</h3>
+                    <p>
+                        Conférence Francophone Esri. Utilisation du Deep Learning et des méthodes de classification pour le suivi urbain.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://hal.science/hal-04255905" target="_blank" rel="noopener noreferrer" class="pub-link">
+                            <svg class="icon-link" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            Voir sur HAL
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
+            <div style="margin-top:2rem; text-align:center;">
+                <a href="https://cv.hal.science/habal-kassoum-traore" target="_blank" class="btn-ghost" rel="noopener noreferrer">
+                    Voir la liste complète sur mon CV HAL ↗
+                </a>
+            </div>
         </div>
     </section>
-
-    <!-- CONTACT -->
 
     <section id="contact" class="tab-section">
         <div class="container">
             <div class="section-header">
                 <div class="section-kicker">Contact</div>
-                <div class="section-title">Me joindre ou en savoir plus</div>
+                <div class="section-title">Me joindre</div>
             </div>
 
             <div class="contact-card">
                 <div>
                     <div class="contact-label">Disponibilité</div>
                     <div class="contact-main">
-                        Ouvert à des collaborations en recherche et en enseignement
-                        autour des risques, des SIG et de la télédétection.
+                        Ouvert à des collaborations en recherche et en enseignement.
                     </div>
                     <div class="contact-sub">
                         N’hésitez pas à me contacter pour des projets de recherche,
-                        des interventions pédagogiques, des encadrements ou des
-                        échanges scientifiques.
+                        des interventions pédagogiques ou des échanges scientifiques.
                     </div>
                 </div>
 
@@ -1842,26 +1589,20 @@
                     </p>
                     <p style="margin-top:0.7rem;">
                         <strong>LinkedIn :</strong><br>
-                        <a href="https://www.linkedin.com/in/habal-traore/" target="_blank">
+                        <a href="https://www.linkedin.com/in/habal-traore/" target="_blank" rel="noopener noreferrer">
                             linkedin.com/in/habal-traore/
                         </a>
                     </p>
                     <p style="margin-top:0.7rem;">
-                        <strong>Fiche laboratoire LOTERR :</strong><br>
-                        <a href="https://loterr.univ-lorraine.fr/doctorant/traore-habal/" target="_blank">
-                            Profil doctorant – LOTERR
+                        <strong>Laboratoire LOTERR :</strong><br>
+                        <a href="https://loterr.univ-lorraine.fr/doctorant/traore-habal/" target="_blank" rel="noopener noreferrer">
+                            Voir mon profil LOTERR
                         </a>
-                    </p>
-                    <p style="margin-top:0.7rem; font-size:0.8rem; color:var(--text-muted);">
-                        Localisation professionnelle : Metz, France. Site en cours
-                        d’enrichissement (cartes, données, supports de cours).
                     </p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- FOOTER -->
 
     <footer>
         &copy; <span id="year"></span> Habal Kassoum Traoré.
@@ -1878,22 +1619,30 @@
 
     function activateTab(id) {
         sections.forEach(sec => sec.classList.remove('active'));
-        links.forEach(a => a.classList.remove('active-tab-link'));
+        links.forEach(a => {
+            // Retire la classe active de tous les liens
+            a.classList.remove('active-tab-link');
+            // Ajoute la classe active seulement si le href correspond exactement
+            if(a.getAttribute('href') === '#' + id) {
+                a.classList.add('active-tab-link');
+            }
+        });
 
         const target = document.getElementById(id);
-        const activeLinks = document.querySelectorAll(`a[href="#${id}"]`);
-
-        if (target) target.classList.add('active');
-        activeLinks.forEach(a => a.classList.add('active-tab-link'));
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (target) {
+            target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     }
 
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const id = link.getAttribute('href').substring(1);
-            activateTab(id);
+            const href = link.getAttribute('href');
+            if(href && href.startsWith('#')) {
+                const id = href.substring(1);
+                activateTab(id);
+            }
         });
     });
 
